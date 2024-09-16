@@ -1,0 +1,11 @@
+asyncpg
+fastapi
+sqlalchemy
+aiosqlite
+greenlet
+asyncpg
+pydantic
+uvicorn
+python-multipart
+aiofiles
+httpx
