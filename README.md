@@ -10,7 +10,10 @@ git clone https://gitlab.com/sashapenkin12/final-work-pa.git
 
 ## 🏃‍♂️ Запуск
 
-docker compose up build
+```
+docker compose up --build
+```
+
 ### 🔴Использование
 
 Зайдите на URL 0.0.0.0 где вас ожидает страница с функционалом.
