@@ -5,7 +5,7 @@
 ### 📰 Скопируйте проект
 
 ```
-git clone https://gitlab.com/sashapenkin12/final-work-pa.git
+git clone https://github.com/sashapenkin12/fastapi-twitter-clone
 ```
 
 ## 🏃‍♂️ Запуск
