@@ -93,11 +93,11 @@ class User(Base):
             User detail info in dict format.
         """
         followers: List[dict] = [
-            await follower.alt_to_repr()
+            follower.alt_to_repr()
             for follower in self.followers
         ] if self.followers else []
         following: List[dict] = [
-            await following.alt_to_repr()
+            following.alt_to_repr()
             for following in self.following
         ] if self.following else []
         return {
@@ -107,7 +107,7 @@ class User(Base):
             'following': following,
         }
 
-    async def to_repr(self) -> dict:
+    def to_repr(self) -> dict:
         """
         Format a user object into a dictionary for repr.
 
@@ -116,7 +116,7 @@ class User(Base):
         """
         return {'user_id': self.id, 'name': self.name}
 
-    async def alt_to_repr(self) -> dict:
+    def alt_to_repr(self) -> dict:
         """
         Alternative format a user object into a dictionary for repr.
 
@@ -168,16 +168,16 @@ class Tweet(Base):
         lazy='joined',
     )
 
-    async def to_dict(self) -> dict:
+    def to_dict(self) -> dict:
         """
         Format a tweet object into a dictionary.
 
         Returns:
             Tweet detail info in dict format.
         """
-        author: dict = await self.author.alt_to_repr() if self.author else None
+        author: dict = self.author.alt_to_repr() if self.author else None
         likes: List[dict] = [
-            await like.to_repr()
+            like.to_repr()
             for like in self.likes
         ] if self.likes else []
         return {
