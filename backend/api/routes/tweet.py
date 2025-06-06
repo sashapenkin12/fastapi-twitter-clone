@@ -234,6 +234,6 @@ async def get_all_tweets(
         await add_user(api_key, generate_random_string(), session)
 
     tweets = await select_all_tweets(session)
-    tweets = [await tweet.to_dict() for tweet in tweets]
+    tweets = [tweet.to_dict() for tweet in tweets]
 
     return TweetsResponse(result=True, tweets=tweets)
