@@ -1,7 +1,7 @@
 FROM node:15.8-alpine3.11 AS build
 WORKDIR /app/frontend
 COPY package*.json ./
-RUN npm install
+RUN npm install --legacy-peer-deps
 COPY . .
 RUN npm build
 
