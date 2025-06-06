@@ -1,0 +1,17 @@
+name: Python Linting
+on: [push]
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+      - name: Install dependencies
+        run: |
+          pip install -r backend/requirements.txt
+          pip install wemake-python-styleguide
+      - name: Run flake8
+        run: flake8 backend/api
