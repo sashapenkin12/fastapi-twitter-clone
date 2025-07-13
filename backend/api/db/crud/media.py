@@ -3,7 +3,6 @@
 
 from typing import List, Optional
 
-from asyncio import gather
 from sqlalchemy import select
 from sqlalchemy.ext.asyncio import AsyncSession
 
