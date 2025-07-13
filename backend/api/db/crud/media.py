@@ -3,7 +3,6 @@
 
 from typing import List, Optional
 
-from asyncio import gather
 from sqlalchemy import select
 from sqlalchemy.ext.asyncio import AsyncSession
 
@@ -23,17 +22,12 @@ async def get_attachments_links_by_ids(
     Returns:
         List of attachments links.
     """
-    attachments_links = []
-    queries = [
-        session.execute(select(Media).where(Media.id == attachment_id))
-        for attachment_id in attachments_ids
-    ]
-    results = await gather(*queries)
-    for result in results:
-        attachment = result.scalars().one_or_none()
-        if attachment:
-            attachments_links.append(attachment.link)
-    return attachments_links
+    attachments_links = await session.execute(
+        select(Media.link).where(
+            Media.id.in_(attachments_ids),
+        ),
+    )
+    return [row[0] for row in attachments_links.fetchall()]
 
 
 async def add_media(

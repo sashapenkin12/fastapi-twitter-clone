@@ -86,7 +86,10 @@ async def load_media(
             file.filename,
             curr_user,
             request.url.scheme,
-            request.client.host,
+            # For local launch
+            "127.0.0.1:8000",
+            # For remote deploy
+            # request.client.host,
             session,
         )
 
